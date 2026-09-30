@@ -1,7 +1,7 @@
 """Train and validate a kit-end-date regression model for the case study.
 
 Usage:
-    python solution.py --data-dir C:/Users/you/Downloads/Data
+    python solution.py --data-dir 
 
 The five supplied Parquet files; it keeps the inference
 rows in their original order and writes predictions.npy in that order as expected to stimulate a kit cycle time.
