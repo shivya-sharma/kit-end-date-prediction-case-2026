@@ -3,8 +3,8 @@
 Usage:
     python solution.py --data-dir C:/Users/you/Downloads/Data
 
-The script expects the five supplied Parquet files. It keeps the inference
-rows in their original order and writes predictions.npy in that order.
+The five supplied Parquet files; it keeps the inference
+rows in their original order and writes predictions.npy in that order as expected to stimulate a kit cycle time.
 """
 
 from __future__ import annotations
@@ -146,9 +146,9 @@ def aggregate_order_family(frame: pd.DataFrame, training: bool) -> pd.DataFrame:
         return out
 
     # The dictionary says this pair is unique, but the supplied train file has
-    # repeated family rows with distinct tie numbers. Combine those rows into
-    # one family prediction unit; retain the summed line quantity and use the
-    # latest tie end date as the family completion date.
+    # repeated family rows with distinct tie numbers. Combining those rows into
+    # one family prediction unit to retain the summed line quantity and use the
+    # latest tie end date as the family completion date was the apporach I took.
     aggregations: dict[str, Any] = {col: "first" for col in out.columns if col not in key}
     aggregations["line_qty"] = "sum"
     aggregations["kit_start"] = "min"
@@ -412,7 +412,7 @@ def save_validation_plot(path: Path, backtests: list[dict[str, Any]]) -> None:
     image.save(path, format="PNG", optimize=True)
 
 
-def create_eda_charts(train: pd.DataFrame, backtests: list[dict[str, Any]], output_dir: Path) -> list[str]:
+def create_eda_charts(train: pd.DataFrame, backtests: list[dict[str, Any]], output_dir: Path) -> list[str]: 
     chart_dir = output_dir / "charts"
     chart_dir.mkdir(parents=True, exist_ok=True)
     saved: list[str] = []
@@ -556,9 +556,9 @@ def fit_and_predict(args: argparse.Namespace) -> dict[str, Any]:
     validation_pred_float = model.predict(X_validation)
     validation_pred_days = rounded_days(validation_pred_float)
 
-    # Auxiliary classification check: predict whether the observed duration
-    # is same-day, one day, or at least two days. This is descriptive only;
-    # it is not an on-time/late label because the case provides no SLA.
+    # Auxiliary classification to be checked to predict whether the observed duration
+    # is same day, one day, or at least two days. This is descriptive primarily;
+    # it is not an on-time/late label because the case provided no SLA threshold to me to ingest.
     y_class_fit = np.where(y_fit == 0, 0, np.where(y_fit == 1, 1, 2)).astype("int64")
     y_class_validation = np.where(
         y_validation == 0, 0, np.where(y_validation == 1, 1, 2)
@@ -605,9 +605,9 @@ def fit_and_predict(args: argparse.Namespace) -> dict[str, Any]:
         },
     }
 
-    # The hierarchy-median regressor is the selected model: it beats the
+    # The hierarchy-median regressoion is the selected model as it beats the
     # complex benchmark on the most recent chronological holdouts, with the
-    # global training median as the fallback for unseen product parents.
+    # global training median as the fallback for unseen product parents as postulated.
     full_parent_medians = train.groupby("family_parent_desc")["kit_duration_days"].median()
     full_global_median = float(train["kit_duration_days"].median())
     predicted_duration_float = (
