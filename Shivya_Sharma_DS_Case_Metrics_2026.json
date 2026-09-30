@@ -1,0 +1,329 @@
+{
+  "data": {
+    "training_rows_raw": 179853,
+    "training_sales_orders_raw": 172234,
+    "training_rows_after_order_family_aggregation": 179843,
+    "training_rows_used": 179109,
+    "negative_duration_rows_excluded": 734,
+    "missing_target_rows_excluded": 0,
+    "training_duration_median_days": 1.0,
+    "training_duration_mean_days": 1.3856478457252288,
+    "training_duration_p90_days": 3.0,
+    "training_duration_p99_days": 6.0,
+    "capacity_input_rows": 191934,
+    "capacity_unique_dates_after_deduplication": 317,
+    "inference_rows": 12069,
+    "inference_sales_orders": 11746,
+    "inference_rows_with_expected_minutes": 9679,
+    "inference_rows_without_expected_minutes": 2390,
+    "inference_rows_without_capacity_for_kit_start": 0,
+    "inference_start_min": "2026-02-03",
+    "inference_start_max": "2026-03-07"
+  },
+  "validation": {
+    "cutoff": "2025-11-01",
+    "fit_rows": 131049,
+    "fit_sales_orders": 124850,
+    "validation_rows": 48060,
+    "validation_sales_orders": 46663,
+    "validation_start_min": "2025-11-01",
+    "validation_start_max": "2026-01-31",
+    "global_median_baseline": {
+      "mae_days": 0.9044527673741157,
+      "median_absolute_error_days": 1.0,
+      "rmse_days": 1.680962409867464,
+      "exact_day_accuracy": 0.45984186433624635,
+      "within_one_day_accuracy": 0.7996878901373283
+    },
+    "family_parent_median_baseline": {
+      "mae_days": 0.8978776529338327,
+      "median_absolute_error_days": 1.0,
+      "rmse_days": 1.658481774923321,
+      "exact_day_accuracy": 0.4538909696213067,
+      "within_one_day_accuracy": 0.8044943820224719
+    },
+    "family_median_baseline": {
+      "mae_days": 0.9001040366208906,
+      "median_absolute_error_days": 1.0,
+      "rmse_days": 1.6644492115094855,
+      "exact_day_accuracy": 0.4544319600499376,
+      "within_one_day_accuracy": 0.8030586766541823
+    },
+    "hist_gradient_boosting": {
+      "mae_days": 0.91277569704536,
+      "median_absolute_error_days": 1.0,
+      "rmse_days": 1.6794763664859014,
+      "exact_day_accuracy": 0.4503121098626717,
+      "within_one_day_accuracy": 0.7996878901373283
+    },
+    "sales_order_end_date": {
+      "global_median_baseline": {
+        "mae_days": 0.9019780125581296,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.670542465003939,
+        "exact_day_accuracy": 0.461029080856353,
+        "within_one_day_accuracy": 0.8013843944881384
+      },
+      "family_parent_median_baseline": {
+        "mae_days": 0.8942631206737672,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.6463657285957265,
+        "exact_day_accuracy": 0.45541435398495594,
+        "within_one_day_accuracy": 0.8064419347234426
+      },
+      "family_median_baseline": {
+        "mae_days": 0.8964918672181386,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.652407410314561,
+        "exact_day_accuracy": 0.45590724985534575,
+        "within_one_day_accuracy": 0.8050061076227418
+      },
+      "hist_gradient_boosting": {
+        "mae_days": 0.9099929280157727,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.6686427933599428,
+        "exact_day_accuracy": 0.4516211988084778,
+        "within_one_day_accuracy": 0.8014701155090758
+      }
+    }
+  },
+  "classification_validation": {
+    "target_definition": "0=same-day completion, 1=one calendar day, 2=two or more calendar days",
+    "class_prevalence_validation": {
+      "same_day_0": 0.13841032043279233,
+      "one_day_1": 0.45984186433624635,
+      "two_plus_days": 0.4017478152309613
+    },
+    "majority_class_baseline": {
+      "accuracy": 0.45984186433624635,
+      "balanced_accuracy": 0.3333333333333333,
+      "macro_f1": 0.20999619916381604,
+      "classes": {
+        "same_day_0": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6652
+        },
+        "one_day_1": {
+          "precision": 0.45984186433624635,
+          "recall": 1.0,
+          "f1": 0.6299885974914481,
+          "support": 22100
+        },
+        "two_plus_days": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 19308
+        }
+      },
+      "confusion_matrix_labels_0_1_2plus": [
+        [
+          0,
+          6652,
+          0
+        ],
+        [
+          0,
+          22100,
+          0
+        ],
+        [
+          0,
+          19308,
+          0
+        ]
+      ]
+    },
+    "hist_gradient_boosting_classifier": {
+      "accuracy": 0.415980024968789,
+      "balanced_accuracy": 0.39827407013992566,
+      "macro_f1": 0.3676524099757188,
+      "classes": {
+        "same_day_0": {
+          "precision": 0.1930581429551917,
+          "recall": 0.2960012026458208,
+          "f1": 0.23369532965402648,
+          "support": 6652
+        },
+        "one_day_1": {
+          "precision": 0.5429919967166017,
+          "recall": 0.23945701357466062,
+          "f1": 0.3323494316397664,
+          "support": 22100
+        },
+        "two_plus_days": {
+          "precision": 0.45281878001067044,
+          "recall": 0.6593639941992956,
+          "f1": 0.5369124686333635,
+          "support": 19308
+        }
+      },
+      "confusion_matrix_labels_0_1_2plus": [
+        [
+          1969,
+          1004,
+          3679
+        ],
+        [
+          5103,
+          5292,
+          11705
+        ],
+        [
+          3127,
+          3450,
+          12731
+        ]
+      ],
+      "macro_ovr_roc_auc": 0.551870853021243
+    },
+    "note": "Auxiliary duration-bucket assessment only; not an SLA classifier."
+  },
+  "rolling_baseline_backtests": [
+    {
+      "cutoff": "2025-09-01",
+      "fit_rows": 96973,
+      "validation_rows": 82136,
+      "validation_sales_orders": 79094,
+      "global_median": {
+        "mae_days": 0.8026687445212818,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.536471007760864,
+        "exact_day_accuracy": 0.4907105288789325,
+        "within_one_day_accuracy": 0.8379151650920424
+      },
+      "family_parent_median": {
+        "mae_days": 0.8067229960066231,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.5272316284272691,
+        "exact_day_accuracy": 0.4850735365734879,
+        "within_one_day_accuracy": 0.8358332521671374
+      }
+    },
+    {
+      "cutoff": "2025-10-01",
+      "fit_rows": 111837,
+      "validation_rows": 67272,
+      "validation_sales_orders": 65084,
+      "global_median": {
+        "mae_days": 0.8444672374836485,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.6157108234758224,
+        "exact_day_accuracy": 0.4789511237959329,
+        "within_one_day_accuracy": 0.825454869782376
+      },
+      "family_parent_median": {
+        "mae_days": 0.8440956118444524,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.5997104774322797,
+        "exact_day_accuracy": 0.47358484956594127,
+        "within_one_day_accuracy": 0.826317041265311
+      }
+    },
+    {
+      "cutoff": "2025-11-01",
+      "fit_rows": 131049,
+      "validation_rows": 48060,
+      "validation_sales_orders": 46663,
+      "global_median": {
+        "mae_days": 0.9044527673741157,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.680962409867464,
+        "exact_day_accuracy": 0.45984186433624635,
+        "within_one_day_accuracy": 0.7996878901373283
+      },
+      "family_parent_median": {
+        "mae_days": 0.8978776529338327,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.658481774923321,
+        "exact_day_accuracy": 0.4538909696213067,
+        "within_one_day_accuracy": 0.8044943820224719
+      }
+    },
+    {
+      "cutoff": "2025-12-01",
+      "fit_rows": 145734,
+      "validation_rows": 33375,
+      "validation_sales_orders": 32356,
+      "global_median": {
+        "mae_days": 0.917812734082397,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.775505414144218,
+        "exact_day_accuracy": 0.4689138576779026,
+        "within_one_day_accuracy": 0.7975430711610487
+      },
+      "family_parent_median": {
+        "mae_days": 0.9052584269662921,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.7383706694113494,
+        "exact_day_accuracy": 0.4580973782771536,
+        "within_one_day_accuracy": 0.8080299625468165
+      }
+    },
+    {
+      "cutoff": "2026-01-01",
+      "fit_rows": 163411,
+      "validation_rows": 15698,
+      "validation_sales_orders": 15134,
+      "global_median": {
+        "mae_days": 0.8286405911581093,
+        "median_absolute_error_days": 0.0,
+        "rmse_days": 1.7180551778358049,
+        "exact_day_accuracy": 0.5179003694738183,
+        "within_one_day_accuracy": 0.8314434959867499
+      },
+      "family_parent_median": {
+        "mae_days": 0.8181934004331762,
+        "median_absolute_error_days": 1.0,
+        "rmse_days": 1.6209467811500406,
+        "exact_day_accuracy": 0.4906994521595108,
+        "within_one_day_accuracy": 0.8274939482736654
+      }
+    }
+  ],
+  "eda_charts": [
+    "Shivya_Sharma_DS_Case_EDADuration_2026.png",
+    "Shivya_Sharma_DS_Case_EDAStartWeekday_2026.png",
+    "Shivya_Sharma_DS_Case_EDAQuantity_2026.png",
+    "Shivya_Sharma_DS_Case_ValidationMAE_2026.png"
+  ],
+  "model": {
+    "name": "family_parent_desc median regressor",
+    "fallback": "global training median duration",
+    "target": "calendar days from kit_start to kit_end",
+    "date_rounding": "nearest nonnegative whole calendar day",
+    "benchmark": {
+      "name": "HistGradientBoostingRegressor",
+      "loss": "absolute_error",
+      "max_iter": 180,
+      "categorical_feature_count": 7,
+      "numeric_feature_count": 17
+    }
+  },
+  "prediction": {
+    "rows": 12069,
+    "sales_orders": 11746,
+    "min_predicted_duration_days": 0,
+    "median_predicted_duration_days": 1.0,
+    "max_predicted_duration_days": 3,
+    "duration_frequency": {
+      "0": 1,
+      "1": 10861,
+      "2": 1177,
+      "3": 30
+    },
+    "predicted_kit_end_min": "2026-02-04",
+    "predicted_kit_end_max": "2026-03-08",
+    "npy_order": "same row order as inference.parquet"
+  },
+  "notes": [
+    "calendar.parquet lists site FCJ while train and inference list site KHO; calendar flags were not joined across this mismatch.",
+    "capacity.parquet contains repeated date rows with identical values; one row per date was used.",
+    "est_ship_date was excluded because it contains 1900-01-01 and pre-kit dates, and its as-of provenance is unclear.",
+    "negative kit durations were excluded as invalid; zero-day and long positive cycles were retained.",
+    "no SLA threshold is supplied, so no on-time/late classifier was fit.",
+    "the hierarchy-median model was selected because it improved date MAE over the global median on the three latest tested cutoffs; the complex benchmark did not improve on the 2025-11-01 holdout."
+  ]
+}
